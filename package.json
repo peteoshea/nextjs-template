@@ -12,9 +12,7 @@
     "start": "next start",
     "test": "jest",
     "test-all": "npm run lint && npm run type-check && npm run test",
-    "type-check": "tsc --pretty --noEmit",
-    "prepublishOnly": "pinst --disable",
-    "postpublish": "pinst --enable"
+    "type-check": "tsc --pretty --noEmit"
   },
   "husky": {
     "hooks": {
@@ -23,8 +21,11 @@
     }
   },
   "lint-staged": {
-    "*.@(ts|tsx)": [
+    "*.@(js|jsx|ts|tsx)": [
       "npm run lint",
+      "npm run format"
+    ],
+    "@(*.@(json|md)|.*rc)": [
       "npm run format"
     ]
   },

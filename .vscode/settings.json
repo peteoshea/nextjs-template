@@ -2,6 +2,6 @@
   "editor.formatOnSave": true,
   "editor.rulers": [100],
   "workbench.colorCustomizations": {
-    "statusBar.background" : "#000000"
+    "statusBar.background": "#000000"
   }
 }

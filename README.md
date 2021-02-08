@@ -21,7 +21,9 @@ There is no special one-off setup required for this project to you can simply ru
 ```bash
 $ ./script/server
 ```
+
 or
+
 ```PowerShell
 > .\script\server.ps1
 ```
