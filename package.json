@@ -21,11 +21,11 @@
   },
   "lint-staged": {
     "*.@(js|ts|tsx)": [
-      "npm run lint",
-      "npm run format"
+      "eslint",
+      "prettier --write"
     ],
     "@(*.@(json|md|yml)|.*rc)": [
-      "npm run format"
+      "prettier --write"
     ]
   },
   "dependencies": {
