@@ -6,12 +6,15 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
-    "type-check": "tsc --pretty --noEmit",
     "format": "prettier --write .",
     "lint": "eslint . --ext ts --ext tsx --ext js",
+    "postinstall": "husky install",
+    "start": "next start",
     "test": "jest",
-    "test-all": "npm run lint && npm run type-check && npm run test"
+    "test-all": "npm run lint && npm run type-check && npm run test",
+    "type-check": "tsc --pretty --noEmit",
+    "prepublishOnly": "pinst --disable",
+    "postpublish": "pinst --enable"
   },
   "husky": {
     "hooks": {
@@ -41,7 +44,7 @@
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.10.1",
     "eslint-plugin-react": "^7.19.0",
-    "husky": "^5.0.8",
+    "husky": "^4.3.8",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^25.2.3",
     "jest-watch-typeahead": "^0.5.0",
