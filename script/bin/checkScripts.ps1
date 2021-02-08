@@ -20,7 +20,7 @@ if ($PSBoundParameters.ContainsKey('Test')) {
     $hints += $results.Where( { $_.Severity -eq 'Information' }).Count
   }
 } else {
-  Write-Output "Analysing all scripts..."
+  Write-Output "Analysing all PowerShell scripts..."
   Invoke-ScriptAnalyzer -Path .\script -Recurse
   $results = Invoke-ScriptAnalyzer -Path .\script -Recurse -ReportSummary
   $errors += $results.Where( { $_.Severity -eq 'Error' }).Count

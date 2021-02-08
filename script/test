@@ -21,6 +21,8 @@ else
   "$script_path/bin/check_scripts"
 fi
 
+npm run test-all
+
 echo
 echo "==> Tests finished at $(date "+%H:%M:%S")"
 echo

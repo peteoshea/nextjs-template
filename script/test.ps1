@@ -15,11 +15,18 @@ if ($PSBoundParameters.ContainsKey('Test')) {
   & "$scriptPath\bin\checkScripts.ps1"
 }
 
-Write-Output "`n==> Script analysis finished at $(Get-Date)`n"
+Write-Output "`n==> PowerShell script analysis finished at $(Get-Date)`n"
 
 if ($LastExitCode) {
-  Write-Output "checkScripts failed with exit code: $LastExitCode"
+  Write-Output "`ncheckScripts failed with exit code: $LastExitCode"
   Exit $LastExitCode
 }
 
-Write-Output "==> Tests finished at $(Get-Date)`n"
+Write-Output "==> Start running Node tests at $(Get-Date)"
+npm run test-all
+if ($LastExitCode) {
+  Write-Output "`nNode tests failed with exit code: $LastExitCode"
+  Exit $LastExitCode
+}
+
+Write-Output "`n==> Tests finished at $(Get-Date)`n"
