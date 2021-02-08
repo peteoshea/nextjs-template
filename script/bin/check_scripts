@@ -31,7 +31,7 @@ else
   while read -r -d '' script_file
   do
     check_script "${script_file}"
-  done < <(find . -type f ! -path './.git/*' \
+  done < <(find . -type f ! -path './.git/*' ! -path './node_modules/*' \
     -exec grep -qE '^#!(.*\/|.*\/env +)(sh|bash|ksh)' {} \; -print0)
 fi
 
