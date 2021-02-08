@@ -1,4 +1,8 @@
-# NextJS Typescript Boilerplate
+# Next.js Template
+
+[![CI](https://github.com/peteoshea/nextjs-template/workflows/CI/badge.svg)](https://github.com/peteoshea/nextjs-template/actions)
+
+This is based on the [with-typescript-eslint-jest](https://github.com/vercel/next.js/tree/canary/examples/with-typescript-eslint-jest) Next.js example project.
 
 Bootstrap a developer-friendly NextJS app configured with:
 
@@ -8,20 +12,20 @@ Bootstrap a developer-friendly NextJS app configured with:
 - Linting, typechecking and formatting on by default using [`husky`](https://github.com/typicode/husky) for commit hooks
 - Testing with [Jest](https://jestjs.io/) and [`react-testing-library`](https://testing-library.com/docs/react-testing-library/intro)
 
-## Deploy your own
-
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example):
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-typescript-eslint-jest&project-name=with-typescript-eslint-jest&repository-name=with-typescript-eslint-jest)
+It also includes my [base-scripts](https://github.com/peteoshea/base-template) to make it easy to get started with this project without having to know any of the underlying tools or how to use them.
 
 ## How to use
 
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init) or [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/) to bootstrap the example:
+There is no special one-off setup required for this project to you can simply run the server [bash](script/server) or [PowerShell](script/server.ps1) script:
 
 ```bash
-npx create-next-app --example with-typescript-eslint-jest with-typescript-eslint-jest-app
-# or
-yarn create next-app --example with-typescript-eslint-jest with-typescript-eslint-jest-app
+$ ./script/server
+```
+or
+```PowerShell
+> .\script\server.ps1
 ```
 
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+You should now be running in development mode on [http://localhost:3000](http://localhost:3000).
+
+This runs `next dev` to get start in development mode rather than `next start` which start a production server. Note that `next` is installed as a node package locally so the `next` command isn't necessarily available directly from the command line so it is actually called using `npm run dev`.
