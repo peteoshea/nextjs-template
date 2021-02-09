@@ -9,19 +9,20 @@ set -e
 echo
 echo "==> Start running tests at $(date "+%H:%M:%S")"
 
-# Work out path to script folder
-script_path=$(dirname "$0")
+# Ensure we are working from the top of the project
+cd "$(dirname "$0")/.." || exit
+echo "Change directory to: $(pwd)"
+
+# Check all bash scripts
+script/bin/check_scripts
 
 # Check if arguments are passed allowing call to specific test(s).
-# As an example this calls a simple script to check these shell scripts are valid.
 if [[ -n $1 ]]
 then
-  "$script_path/bin/check_scripts" "$@"
+  npm run test-all "$@"
 else
-  "$script_path/bin/check_scripts"
+  npm run test-all
 fi
-
-npm run test
 
 echo
 echo "==> Tests finished at $(date "+%H:%M:%S")"
