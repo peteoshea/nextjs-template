@@ -212,4 +212,7 @@ then
 
   output_message "Installing npm dependencies…"
   npm install
+
+  output_message "Checking for outdated packages..."
+  npm outdated
 fi

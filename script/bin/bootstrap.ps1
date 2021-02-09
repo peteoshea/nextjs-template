@@ -102,12 +102,20 @@ if (Test-Path -Path "$packageJson" -PathType Leaf) {
   }
 
   Write-Output "`n==> Installing npm dependencies..."
+  Push-Location "$basePath"
+  Write-Output "Change directory to: $(Get-Location)"
+
   Write-Output "Where is npm running from:"
   where.exe npm
   Write-Output "What version of npm:"
   npm -v
   Write-Output "Install npm packages..."
   npm install
+  Write-Output "Checking for outdated packages..."
+  npm outdated
+
+  Pop-Location
+  Write-Output "Change directory back to: $(Get-Location)"
 }
 
 # Wait for user response in case this was spawned as a separate process
