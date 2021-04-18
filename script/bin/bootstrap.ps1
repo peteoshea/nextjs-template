@@ -59,7 +59,7 @@ if ($nodePackages) {
   npm install
   Write-Output "Checking for outdated packages..."
   npm outdated
-  # Ignore exit code as we don't care if there are outdate packages, we just want to display them
+  # Ignore exit code as we don't care if there are outdated packages, we just want to display them
   $global:LASTEXITCODE = 0
 
   Pop-Location
