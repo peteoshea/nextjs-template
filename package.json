@@ -4,8 +4,8 @@
   "license": "ISC",
   "version": "1.0.0",
   "scripts": {
-    "dev": "next dev",
     "build": "next build",
+    "dev": "next dev",
     "format": "prettier --write .",
     "lint": "eslint . --ext ts --ext tsx --ext js",
     "lint-staged": "lint-staged",

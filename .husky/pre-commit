@@ -1,4 +1,7 @@
 #!/bin/sh
+
+# Don't try and follow this internal husky script
+# shellcheck source=/dev/null
 . "$(dirname "$0")/_/husky.sh"
 
 npm run lint-staged
