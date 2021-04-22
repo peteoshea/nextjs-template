@@ -214,5 +214,5 @@ then
   npm install
 
   output_message "Checking for outdated packages..."
-  npm outdated
+  npm outdated || true
 fi
