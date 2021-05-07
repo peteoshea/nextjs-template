@@ -1,0 +1,17 @@
+name: Auto-merge Dependabot PRs
+
+on: pull_request_target
+
+jobs:
+  auto-merge:
+    runs-on: ubuntu-latest
+    if: github.actor == 'dependabot[bot]'
+    steps:
+      - name: Checkout project source
+        uses: actions/checkout@v2
+
+      - name: Dependabot Auto Merge
+        uses: ahmadnassri/action-dependabot-auto-merge@v2
+        with:
+          target: minor
+          github-token: ${{ secrets.AUTO_MERGE_TOKEN }}
