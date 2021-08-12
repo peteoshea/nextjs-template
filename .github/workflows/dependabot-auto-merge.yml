@@ -15,3 +15,4 @@ jobs:
         with:
           target: minor
           github-token: ${{ secrets.AUTO_MERGE_TOKEN }}
+          command: squash and merge
