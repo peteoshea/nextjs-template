@@ -8,7 +8,7 @@ jobs:
     if: github.actor == 'dependabot[bot]'
     steps:
       - name: Checkout project source
-        uses: actions/checkout@v2.3.4
+        uses: actions/checkout@v2.3.5
 
       - name: Dependabot Auto Merge
         uses: ahmadnassri/action-dependabot-auto-merge@v2.4
