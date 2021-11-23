@@ -13,7 +13,7 @@ jobs:
           node-version: '14'
 
       - name: Cache Node.js modules
-        uses: actions/cache@v2.1.6
+        uses: actions/cache@v2.1.7
         with:
           path: ~/.npm
           key: ${{runner.OS}}-node-${{hashFiles('**/package-lock.json')}}
@@ -28,7 +28,7 @@ jobs:
 
       - name: Cache PowerShell modules
         id: cache-powershell-modules
-        uses: actions/cache@v2.1.6
+        uses: actions/cache@v2.1.7
         with:
           path: ~/.local/share/powershell/Modules
           # Include a date as a manual cache buster if you want to install newer module versions
