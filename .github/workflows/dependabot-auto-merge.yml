@@ -1,18 +1,17 @@
 name: Auto-merge Dependabot PRs
-
 on: pull_request_target
-
 jobs:
   auto-merge:
     runs-on: ubuntu-latest
     if: github.actor == 'dependabot[bot]'
     steps:
       - name: Checkout project source
-        uses: actions/checkout@v2.4.0
+        uses: actions/checkout@v3.5.0
 
       - name: Dependabot Auto Merge
-        uses: ahmadnassri/action-dependabot-auto-merge@v2.6
+        uses: ahmadnassri/action-dependabot-auto-merge@v2.6.6
         with:
-          target: minor
-          github-token: ${{ secrets.AUTO_MERGE_TOKEN }}
+          # Auto merge even major changes as long as the tests all pass
+          target: major
+          github-token: ${{secrets.AUTO_MERGE_TOKEN}}
           command: squash and merge
