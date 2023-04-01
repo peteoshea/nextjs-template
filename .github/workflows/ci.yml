@@ -5,20 +5,24 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout project source
-        uses: actions/checkout@v2.4.0
+        uses: actions/checkout@v3.5.0
+
+      - name: Read Node.js version from .nvmrc
+        run: echo "##[set-output name=NVMRC;]$(cat .nvmrc)"
+        id: nvmrc
 
       - name: Setup Node.js
-        uses: actions/setup-node@v2.5.1
+        uses: actions/setup-node@v3.6.0
         with:
-          node-version: '14'
+          node-version: ${{steps.nvmrc.outputs.NVMRC}}
 
       - name: Cache Node.js modules
-        uses: actions/cache@v2.1.7
+        uses: actions/cache@v3.3.1
         with:
           path: ~/.npm
-          key: ${{runner.OS}}-node-${{hashFiles('**/package-lock.json')}}
+          key: ${{runner.OS}}-node-${{steps.nvmrc.outputs.NVMRC}}-${{hashFiles('**/package-lock.json')}}
           restore-keys: |
-            ${{runner.OS}}-node-
+            ${{runner.OS}}-node-${{steps.nvmrc.outputs.NVMRC}}
 
       - name: Install Node.js dependencies
         run: npm ci
@@ -28,11 +32,11 @@ jobs:
 
       - name: Cache PowerShell modules
         id: cache-powershell-modules
-        uses: actions/cache@v2.1.7
+        uses: actions/cache@v3.3.1
         with:
           path: ~/.local/share/powershell/Modules
           # Include a date as a manual cache buster if you want to install newer module versions
-          key: ${{runner.os}}-powershell-modules-2021-02-08
+          key: ${{runner.os}}-powershell-modules-2023-04-01
 
       - name: Install powershell script analyser
         if: steps.cache-powershell-modules.outputs.cache-hit != 'true'
