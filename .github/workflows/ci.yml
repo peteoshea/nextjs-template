@@ -17,7 +17,7 @@ jobs:
           node-version: ${{steps.nvmrc.outputs.NVMRC}}
 
       - name: Cache Node.js modules
-        uses: actions/cache@v4.0.0
+        uses: actions/cache@v4.0.1
         with:
           path: ~/.npm
           key: ${{runner.OS}}-node-${{steps.nvmrc.outputs.NVMRC}}-${{hashFiles('**/package-lock.json')}}
@@ -32,7 +32,7 @@ jobs:
 
       - name: Cache PowerShell modules
         id: cache-powershell-modules
-        uses: actions/cache@v4.0.0
+        uses: actions/cache@v4.0.1
         with:
           path: ~/.local/share/powershell/Modules
           # Include a date as a manual cache buster if you want to install newer module versions
