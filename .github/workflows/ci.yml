@@ -12,7 +12,7 @@ jobs:
         id: nvmrc
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4.0.3
+        uses: actions/setup-node@v4.0.4
         with:
           node-version: ${{steps.nvmrc.outputs.NVMRC}}
 
